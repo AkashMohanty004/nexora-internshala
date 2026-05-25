@@ -1,0 +1,152 @@
+/* ==========================================================================
+   NEXORA AI SYNAPSE WORKSPACE PAGE SPECIFIC CSS
+   ========================================================================== */
+
+.ai-workspace-layout {
+  display: grid;
+  grid-template-columns: 3fr 1.1fr;
+  gap: 16px;
+  height: 100%;
+}
+
+.chat-main-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sidebar-panels-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Chat container card */
+.card-expanded-chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.chat-scroller {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+/* Interactive Input Console */
+.chat-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 12px;
+  transition: var(--transition-fast);
+}
+
+.chat-input-wrapper:focus-within {
+  border-color: var(--accent-cyan);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.chat-input-textarea {
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  line-height: 1.5;
+  width: 100%;
+  height: 60px;
+}
+
+.chat-input-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: 10px;
+}
+
+/* Debugger Scrolling Module */
+.card-debug-monitor {
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+}
+
+.debug-logs-scroller {
+  flex: 1;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.debug-log-row {
+  white-space: nowrap;
+}
+
+.debug-log-row span.success { color:#10b981; }
+.debug-log-row span.info { color:var(--accent-blue); }
+.debug-log-row span.accent { color:var(--accent-cyan); }
+
+/* Quick command buttons lists */
+.card-command-directory {
+  display: flex;
+  flex-direction: column;
+}
+
+.command-buttons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.quick-cmd-btn {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.quick-cmd-btn:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--accent-cyan);
+}
+
+.quick-cmd-title {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--accent-cyan);
+  font-weight: bold;
+}
+
+.quick-cmd-desc {
+  font-size: 11px;
+  color: var(--text-secondary);
+}

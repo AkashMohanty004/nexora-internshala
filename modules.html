@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora Core // Curriculum Console</title>
+  
+  <!-- CSS Linkages -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/modules.css">
+</head>
+<body>
+
+  <!-- Background Particles Canvas -->
+  <canvas id="bg-canvas" style="position: fixed; top:0; left:0; width:100vw; height:100vh; z-index:1; pointer-events:none;"></canvas>
+  
+  <!-- CRT Digital Grain Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Ambient Blurred Backdrop Gradients -->
+  <div class="ambient-glow-container">
+    <div class="ambient-orb orb-cyan"></div>
+    <div class="ambient-orb orb-purple"></div>
+    <div class="ambient-orb orb-blue"></div>
+  </div>
+
+  <!-- APP WRAPPER -->
+  <div id="app-wrapper" class="app-wrapper active">
+    
+    <!-- LEFT SIDEBAR NAVIGATION -->
+    <nav class="sidebar glass-panel">
+      <div class="sidebar-toggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:40px;">
+        <div class="sidebar-header">
+          <div class="sidebar-logo"></div>
+          <div class="sidebar-logo-text">NEXORA</div>
+        </div>
+
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a href="dashboard.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+              <span>Overview</span>
+            </a>
+          </li>
+          <li class="sidebar-item active">
+            <a href="modules.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+              <span>Modules</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="telemetry.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path></svg>
+              <span>Telemetry</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="ai-synapse.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>AI Synapse</span>
+            </a>
+          </li>
+        </ul>
+
+        <div>
+          <div class="sidebar-label">WORKSPACE SPECS</div>
+          <ul class="sidebar-menu" style="margin-top:0;">
+            <li class="sidebar-item">
+              <a href="index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                <span>Console Term</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- USER INFO -->
+      <div class="sidebar-footer">
+        <div class="user-avatar">A</div>
+        <div class="user-meta">
+          <span class="user-name">Akash Kumar</span>
+          <span class="user-role">SYSTEM AGENT #089</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MAIN VIEW AREA -->
+    <main class="main-content">
+      
+      <!-- HEADER -->
+      <header class="dashboard-header">
+        <div class="header-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" placeholder="Search cognitive base...">
+        </div>
+
+        <div class="header-actions">
+          <div class="action-badge">
+            <span class="pulse-indicator"></span>
+            SYNAPSE SECURE
+          </div>
+        </div>
+      </header>
+
+      <!-- MODULES SPLIT LAYOUT -->
+      <div class="dashboard-scroll-area" style="overflow:hidden;">
+        <div class="modules-layout">
+          
+          <!-- LEFT COLUMN: SYLLABUS DIRECTORIES -->
+          <div class="syllabus-column">
+            
+            <!-- Category 1: Quantum Computing -->
+            <div class="syllabus-group open" style="--active-color: var(--accent-cyan); --active-glow: rgba(0, 245, 255, 0.15);">
+              <div class="syllabus-group-header">
+                <div class="syllabus-group-title">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                  <span>Quantum Computing</span>
+                </div>
+                <svg class="syllabus-group-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </div>
+              <ul class="syllabus-lessons-list">
+                <li class="syllabus-lesson-item active" data-lesson="q-superposition">
+                  <span>Superposition & Qubits</span>
+                  <span style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted);">68% Sync</span>
+                </li>
+                <li class="syllabus-lesson-item" data-lesson="q-gates">
+                  <span>Phase Gates & Bloch Sphere</span>
+                  <span style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted);">40% Sync</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Category 2: Neuro-Symbolic AI -->
+            <div class="syllabus-group" style="--active-color: var(--accent-purple); --active-glow: rgba(189, 92, 255, 0.15);">
+              <div class="syllabus-group-header">
+                <div class="syllabus-group-title">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 6v6l4 2"></path></svg>
+                  <span>Neuro-Symbolic AI</span>
+                </div>
+                <svg class="syllabus-group-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </div>
+              <ul class="syllabus-lessons-list">
+                <li class="syllabus-lesson-item" data-lesson="ns-logic">
+                  <span>Logic Constraints Embeddings</span>
+                  <span style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted);">45% Sync</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- RIGHT COLUMN: INTERACTIVE CONSOLE BENTO CORES -->
+          <div class="console-column">
+            
+            <!-- Code Simulator Card -->
+            <div class="bento-card glass-panel card-sandbox">
+              <div class="sandbox-header">
+                <div class="sandbox-title">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px; height:16px; stroke:var(--accent-cyan);"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  <span id="sandbox-title-text">Quantum Superposition & Qubits</span>
+                </div>
+                <button id="run-code-btn" class="btn-futuristic" style="padding: 6px 14px; font-size: 11px;">COMPILE CODE</button>
+              </div>
+              
+              <div class="sandbox-editor-wrapper">
+                <!-- Mock Code Editor -->
+                <div class="ide-editor">
+                  <div class="ide-gutter">
+                    1<br>2<br>3<br>4<br>5<br>6<br>7<br>8
+                  </div>
+                  <textarea id="ide-textarea" class="ide-textarea" spellcheck="false">// OpenQASM code loads here...</textarea>
+                </div>
+                
+                <!-- Mock Compiler -->
+                <div class="ide-compiler">
+                  <div class="compiler-header">CONSOLE OUTPUT // COMPILER v1.0.4</div>
+                  <div id="compiler-body" class="compiler-body">
+                    Awaiting compilation input... Click "Compile Code" to execute.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quiz Card -->
+            <div class="bento-card glass-panel card-quiz">
+              <div>
+                <div style="font-family:var(--font-display); font-size:15px; font-weight:600; margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-purple)" stroke-width="2" style="width:18px; height:18px;"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                  <span>Cognitive Synapse Check</span>
+                </div>
+                <div id="quiz-question" class="quiz-question">
+                  Loading quiz questions... Select a lesson folder on the left.
+                </div>
+              </div>
+              
+              <div>
+                <div id="quiz-options" class="quiz-options">
+                  <!-- Choices appended via JS -->
+                </div>
+                <div id="quiz-feedback" class="quiz-feedback">
+                  <!-- Feedback text -->
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Javascript Modules -->
+  <script src="js/particles.js"></script>
+  <script src="js/modules.js"></script>
+  <script>
+    // Collapsible sidebar link inside app.js
+    const sidebar = document.querySelector('.sidebar');
+    const sidebarToggle = document.querySelector('.sidebar-toggle');
+    if (sidebarToggle && sidebar) {
+      sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('collapsed');
+      });
+    }
+  </script>
+</body>
+</html>

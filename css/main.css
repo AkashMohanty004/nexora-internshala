@@ -1,0 +1,290 @@
+/* ==========================================================================
+   NEXORA CORE DESIGN SYSTEM (CSS VARIABLES & TOKENS)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700;800&family=Share+Tech+Mono&display=swap');
+
+:root {
+  /* Color Palette */
+  --bg-deep: #050505;
+  --bg-dark: #0a0a0a;
+  --bg-card: rgba(13, 13, 16, 0.65);
+  --bg-card-hover: rgba(20, 20, 25, 0.8);
+  
+  --accent-cyan: #00f5ff;
+  --accent-cyan-rgb: 0, 245, 255;
+  --accent-purple: #bd5cff;
+  --accent-purple-rgb: 189, 92, 255;
+  --accent-blue: #3b82f6;
+  --accent-blue-rgb: 59, 130, 246;
+  
+  --glow-cyan: rgba(0, 245, 255, 0.15);
+  --glow-purple: rgba(189, 92, 255, 0.18);
+  --glow-blue: rgba(59, 130, 246, 0.15);
+  
+  --border-light: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(0, 245, 255, 0.25);
+  --border-purple-glow: rgba(189, 92, 255, 0.25);
+  
+  --text-primary: #f4f4f7;
+  --text-secondary: #8e8e9f;
+  --text-muted: #525262;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+
+  /* Layout & Transitions */
+  --sidebar-width: 240px;
+  --sidebar-collapsed-width: 72px;
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-spring: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-fast: all 0.15s ease;
+}
+
+/* ==========================================================================
+   RESET & SYSTEM STYLES
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 245, 255, 0.3);
+}
+
+/* ==========================================================================
+   ATMOSPHERIC LIGHTING & EFFECTS
+   ========================================================================== */
+
+/* Noise Overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Floating Ambient Orbs (CSS/SVG) */
+.ambient-glow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.45;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.orb-cyan {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 245, 255, 0.12) 0%, rgba(0, 150, 255, 0.03) 50%, transparent 70%);
+  top: -10%;
+  right: -5%;
+  animation: floatOrb 25s infinite alternate ease-in-out;
+}
+
+.orb-purple {
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(189, 92, 255, 0.1) 0%, rgba(124, 58, 237, 0.02) 55%, transparent 70%);
+  bottom: -15%;
+  left: -5%;
+  animation: floatOrb 30s infinite alternate-reverse ease-in-out;
+}
+
+.orb-blue {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+  top: 40%;
+  left: 30%;
+  animation: floatOrb 20s infinite alternate ease-in-out;
+}
+
+@keyframes floatOrb {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(80px, -60px) scale(1.1);
+  }
+  100% {
+    transform: translate(-40px, 50px) scale(0.95);
+  }
+}
+
+/* Scanline visual overlay for dashboards */
+.scanline {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+/* Glassmorphism Panel Base Class */
+.glass-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px;
+  transition: var(--transition-smooth);
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+}
+
+/* Glowing text utilities */
+.glow-text-cyan {
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.35);
+  color: var(--accent-cyan);
+}
+
+.glow-text-purple {
+  text-shadow: 0 0 10px rgba(189, 92, 255, 0.35);
+  color: var(--accent-purple);
+}
+
+/* Animated Border Container */
+.glow-border-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-border-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: var(--transition-smooth);
+}
+
+.glow-border-card:hover::before {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+}
+
+/* Custom Interactive Button */
+.btn-futuristic {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-futuristic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 245, 255, 0.15),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.btn-futuristic:hover::before {
+  left: 100%;
+}
+
+.btn-futuristic:hover {
+  background: rgba(0, 245, 255, 0.05);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+  color: var(--accent-cyan);
+  text-shadow: 0 0 8px rgba(0, 245, 255, 0.4);
+}
+
+.btn-futuristic:active {
+  transform: scale(0.97);
+}
+
+/* Shimmer animation utility */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-bg {
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s infinite;
+}

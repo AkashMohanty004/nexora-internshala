@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora Core // AI Synapse Workspace</title>
+  
+  <!-- CSS Linkages -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/ai-synapse.css">
+</head>
+<body>
+
+  <!-- Background Particles Canvas -->
+  <canvas id="bg-canvas" style="position: fixed; top:0; left:0; width:100vw; height:100vh; z-index:1; pointer-events:none;"></canvas>
+  
+  <!-- CRT Digital Grain Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Ambient Blurred Backdrop Gradients -->
+  <div class="ambient-glow-container">
+    <div class="ambient-orb orb-cyan"></div>
+    <div class="ambient-orb orb-purple"></div>
+    <div class="ambient-orb orb-blue"></div>
+  </div>
+
+  <!-- APP WRAPPER -->
+  <div id="app-wrapper" class="app-wrapper active">
+    
+    <!-- LEFT SIDEBAR NAVIGATION -->
+    <nav class="sidebar glass-panel">
+      <div class="sidebar-toggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:40px;">
+        <div class="sidebar-header">
+          <div class="sidebar-logo"></div>
+          <div class="sidebar-logo-text">NEXORA</div>
+        </div>
+
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a href="dashboard.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+              <span>Overview</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="modules.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+              <span>Modules</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="telemetry.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path></svg>
+              <span>Telemetry</span>
+            </a>
+          </li>
+          <li class="sidebar-item active">
+            <a href="ai-synapse.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>AI Synapse</span>
+            </a>
+          </li>
+        </ul>
+
+        <div>
+          <div class="sidebar-label">WORKSPACE SPECS</div>
+          <ul class="sidebar-menu" style="margin-top:0;">
+            <li class="sidebar-item">
+              <a href="index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                <span>Console Term</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- USER INFO -->
+      <div class="sidebar-footer">
+        <div class="user-avatar">A</div>
+        <div class="user-meta">
+          <span class="user-name">Akash Kumar</span>
+          <span class="user-role">SYSTEM AGENT #089</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MAIN VIEW AREA -->
+    <main class="main-content">
+      
+      <!-- HEADER -->
+      <header class="dashboard-header">
+        <div class="header-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" placeholder="Search cognitive base...">
+        </div>
+
+        <div class="header-actions">
+          <div class="action-badge">
+            <span class="pulse-indicator"></span>
+            SYNAPSE SECURE
+          </div>
+        </div>
+      </header>
+
+      <!-- AI CORE WORKSPACE LAYOUT -->
+      <div class="dashboard-scroll-area" style="overflow:hidden;">
+        <div class="ai-workspace-layout">
+          
+          <!-- LEFT COLUMN: EXPANDED CHAT CONSOLE -->
+          <div class="chat-main-column">
+            <div class="bento-card glass-panel card-expanded-chat">
+              <div style="font-family:var(--font-display); font-size:16px; font-weight:700; margin-bottom:16px; display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom:12px;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2" style="width:20px; height:20px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                  <span>Nexora AI Command Terminal</span>
+                </div>
+                <span style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">COGNITIVE WEIGHTS LOCK: 99.8%</span>
+              </div>
+              
+              <!-- Chat Logs scroller -->
+              <div id="ai-chat-body" class="chat-scroller">
+                <!-- Chat lines appended via JS -->
+              </div>
+              
+              <!-- Chat Input Box -->
+              <div class="chat-input-wrapper">
+                <textarea id="ai-chat-input" class="chat-input-textarea" placeholder="Send query or enter a terminal shortcut command (e.g. /optimize)..."></textarea>
+                <div class="chat-input-actions">
+                  <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--text-muted);">PRESS [ENTER] TO DISPATCH COGNITION</span>
+                  <button id="ai-chat-submit" class="btn-futuristic" style="padding: 6px 16px; font-size: 11px;">DISPATCH</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: SIDEBAR TELEMETRY PANELS -->
+          <div class="sidebar-panels-column">
+            
+            <!-- Brainwave Wave Panel -->
+            <div class="bento-card glass-panel" style="min-height:160px; padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
+              <div style="font-family:var(--font-display); font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:1px; color:#fff;">Neural Oscillations</div>
+              <div style="height:60px; margin: 10px 0; background:rgba(0,0,0,0.2); border-radius:6px; border:1px solid rgba(255,255,255,0.03); overflow:hidden;">
+                <canvas id="neural-scanner" style="width:100%; height:100%;"></canvas>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:9.5px; color:var(--text-muted);">
+                <span>FEED: CH_1 (BETA)</span>
+                <span>SYNC RATE: 94%</span>
+              </div>
+            </div>
+
+            <!-- Debug Logs Card -->
+            <div class="bento-card glass-panel card-debug-monitor">
+              <div style="font-family:var(--font-display); font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:1px; color:#fff;">Diagnostics Logs</div>
+              <div id="debug-logs" class="debug-logs-scroller">
+                <!-- Autogenerated scrolling tech logs -->
+              </div>
+            </div>
+
+            <!-- Command Directory Card -->
+            <div class="bento-card glass-panel card-command-directory">
+              <div style="font-family:var(--font-display); font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:1px; color:#fff;">Terminal Shortcuts</div>
+              
+              <div class="command-buttons-list">
+                <!-- Short 1 -->
+                <div class="quick-cmd-btn" data-cmd="/path">
+                  <div>
+                    <div class="quick-cmd-title">/path</div>
+                    <div class="quick-cmd-desc">Generate curriculum map</div>
+                  </div>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" style="width:14px; height:14px;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </div>
+                
+                <!-- Short 2 -->
+                <div class="quick-cmd-btn" data-cmd="/optimize">
+                  <div>
+                    <div class="quick-cmd-title">/optimize</div>
+                    <div class="quick-cmd-desc">Scan biometric focus periods</div>
+                  </div>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" style="width:14px; height:14px;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </div>
+
+                <!-- Short 3 -->
+                <div class="quick-cmd-btn" data-cmd="/stats">
+                  <div>
+                    <div class="quick-cmd-title">/stats</div>
+                    <div class="quick-cmd-desc">Index weekly completion speeds</div>
+                  </div>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" style="width:14px; height:14px;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Javascript Modules -->
+  <script src="js/particles.js"></script>
+  <script src="js/ai-core.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Initialize Particles Background
+      if (window.NexoraParticles) {
+        new window.NexoraParticles('bg-canvas');
+      }
+
+      // 2. Collapsible sidebar
+      const sidebar = document.querySelector('.sidebar');
+      const sidebarToggle = document.querySelector('.sidebar-toggle');
+      if (sidebarToggle && sidebar) {
+        sidebarToggle.addEventListener('click', () => {
+          sidebar.classList.toggle('collapsed');
+        });
+      }
+
+      // 3. AI Core Console Bindings
+      const aiCore = new window.NexoraAiCore('ai-chat-body', 'ai-chat-input', 'ai-chat-submit');
+      
+      // Bind shortcuts
+      const cmdBtns = document.querySelectorAll('.quick-cmd-btn');
+      cmdBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const cmd = btn.getAttribute('data-cmd');
+          aiCore.addUserMessage(cmd);
+          setTimeout(() => {
+            aiCore.processCommand(cmd);
+          }, 300);
+        });
+      });
+
+      // 4. Live Oscilloscope Scanner
+      const initOscilloscope = () => {
+        const canvas = document.getElementById('neural-scanner');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const crect = canvas.parentElement.getBoundingClientRect();
+        
+        canvas.width = crect.width;
+        canvas.height = 60;
+        
+        let phase = 0;
+        
+        const render = () => {
+          ctx.clearRect(0, 0, canvas.width, 60);
+          ctx.strokeStyle = 'rgba(0, 245, 255, 0.6)';
+          ctx.lineWidth = 1.2;
+          ctx.shadowBlur = 4;
+          ctx.shadowColor = 'var(--accent-cyan)';
+          
+          ctx.beginPath();
+          phase += 0.08;
+          
+          for (let x = 0; x < canvas.width; x++) {
+            // Complex rippling sine wave
+            const y = 30 + Math.sin(x * 0.05 + phase) * 12 * Math.cos(x * 0.01 + phase * 0.5);
+            if (x === 0) {
+              ctx.moveTo(x, y);
+            } else {
+              ctx.lineTo(x, y);
+            }
+          }
+          
+          ctx.stroke();
+          ctx.shadowBlur = 0;
+          requestAnimationFrame(render);
+        };
+        
+        render();
+      };
+      
+      initOscilloscope();
+
+      // 5. Diagnostics Logs Auto-scroll Generator
+      const debugLogs = document.getElementById('debug-logs');
+      if (debugLogs) {
+        const logTemplates = [
+          { text: 'SECURE LINK: Sync efficiency baseline operating at 94.2%', type: 'success' },
+          { text: 'COGNITIVE LOG: System metrics cached successfully to core registries.', type: 'info' },
+          { text: 'SYNAPSE LINK: Adjusting optimization parameters by -0.05ms jitter.', type: 'accent' },
+          { text: 'TELEMETRY GATE: Resolving remote vectors on channel #19.', type: 'info' },
+          { text: 'BIOSYNC FEED: Standard parameters logged for active agent.', type: 'info' }
+        ];
+
+        setInterval(() => {
+          const randLog = logTemplates[Math.floor(Math.random() * logTemplates.length)];
+          const line = document.createElement('div');
+          line.className = 'debug-log-row';
+          const time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+          line.innerHTML = `
+            <span style="color:#525262;">${time}</span> 
+            <span class="${randLog.type}">[${randLog.type.toUpperCase()}]</span> 
+            ${randLog.text}
+          `;
+          debugLogs.appendChild(line);
+          debugLogs.scrollTop = debugLogs.scrollHeight;
+          
+          // Cap logs length to prevent slow down
+          if (debugLogs.childElementCount > 30) {
+            debugLogs.removeChild(debugLogs.firstChild);
+          }
+        }, 2200);
+      }
+    });
+  </script>
+</body>
+</html>

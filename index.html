@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora // The Cognitive Learning System</title>
+  
+  <!-- CSS Linkages -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+
+  <!-- Background Particles Canvas -->
+  <canvas id="bg-canvas" style="position: fixed; top:0; left:0; width:100vw; height:100vh; z-index:1; pointer-events:none;"></canvas>
+  
+  <!-- CRT Digital Grain Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Ambient Blurred Backdrop Gradients -->
+  <div class="ambient-glow-container">
+    <div class="ambient-orb orb-cyan"></div>
+    <div class="ambient-orb orb-purple"></div>
+    <div class="ambient-orb orb-blue"></div>
+  </div>
+
+  <!-- ==========================================================================
+       CINEMATIC LANDING PAGE WRAPPER
+       ========================================================================== */ -->
+  <div id="landing-wrapper" class="landing-wrapper" style="position:relative; z-index:10;">
+    
+    <!-- HEADER -->
+    <header class="landing-header">
+      <div class="logo-container">
+        <div class="logo-icon"></div>
+        <div class="logo-text">NEXORA</div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#features">FEATURES</a></li>
+        <li><a href="#syllabus">CURRICULUM</a></li>
+        <li><a href="#pricing">SYSTEM TIERS</a></li>
+      </ul>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-container">
+      <div class="hero-content">
+        <div class="badge-futuristic">
+          <span style="display:inline-block; width:5px; height:5px; background:var(--accent-cyan); border-radius:50%; box-shadow:0 0 6px var(--accent-cyan);"></span>
+          Cognitive Operating System v1.0.8
+        </div>
+        <h1 class="hero-title">
+          The Cognitive<br>Operating System for <span>Future Minds.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Nexora is an expensive, high-fidelity AI-powered dashboard environment built to accelerate learning in quantum systems, neural architectures, bio-engineering, and autonomous agents.
+        </p>
+        <div class="hero-actions">
+          <button id="init-console-btn" class="btn-futuristic">
+            <span>INITIALIZE CONSOLE</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-visuals">
+        <div class="hologram-wrapper">
+          <div class="hologram-grid"></div>
+          <div class="hologram-sphere">
+            <div class="hologram-ring ring-x"></div>
+            <div class="hologram-ring ring-y"></div>
+            <div class="hologram-ring ring-z"></div>
+            <div class="hologram-core"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES BENTO GRID -->
+    <section id="features" class="landing-features-section" style="width:100%; max-width:1300px; margin: 80px auto 40px auto; padding: 0 24px;">
+      <h2 style="font-family:var(--font-display); font-size:32px; font-weight:700; margin-bottom:40px; text-align:center;">
+        Engineered for <span style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Cognitive Expansion</span>
+      </h2>
+      
+      <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:20px;">
+        
+        <!-- Feature 1 -->
+        <div class="glass-panel" style="padding:30px; display:flex; flex-direction:column; gap:16px; min-height:220px;">
+          <div style="width:36px; height:36px; border-radius:8px; background:rgba(0, 245, 255, 0.08); display:flex; align-items:center; justify-content:center; border:1px solid rgba(0, 245, 255, 0.2);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2" style="width:18px; height:18px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <h3 style="font-family:var(--font-display); font-size:18px; font-weight:600;">Neural Focus Synth</h3>
+          <p style="color:var(--text-secondary); font-size:13.5px; line-height:1.5;">
+            Procedural Audio Context oscillators synthesizing stereophonic Alpha Waves (10Hz binaural offsets) and bandpass Cosmic Rain sweeps to isolate neural focuses.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="glass-panel" style="padding:30px; display:flex; flex-direction:column; gap:16px; min-height:220px;">
+          <div style="width:36px; height:36px; border-radius:8px; background:rgba(189, 92, 255, 0.08); display:flex; align-items:center; justify-content:center; border:1px solid rgba(189, 92, 255, 0.2);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-purple)" stroke-width="2" style="width:18px; height:18px;"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+          </div>
+          <h3 style="font-family:var(--font-display); font-size:18px; font-weight:600;">Cognitive Bento Grid</h3>
+          <p style="color:var(--text-secondary); font-size:13.5px; line-height:1.5;">
+            Responsive, glassmorphic grid systems inspired by Apple Vision Pro, arranging stats, schedules, modules, and diagnostic logs into a unified workstation.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="glass-panel" style="padding:30px; display:flex; flex-direction:column; gap:16px; min-height:220px;">
+          <div style="width:36px; height:36px; border-radius:8px; background:rgba(59, 130, 246, 0.08); display:flex; align-items:center; justify-content:center; border:1px solid rgba(59, 130, 246, 0.2);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2" style="width:18px; height:18px;"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path></svg>
+          </div>
+          <h3 style="font-family:var(--font-display); font-size:18px; font-weight:600;">Synapse Telemetry</h3>
+          <p style="color:var(--text-secondary); font-size:13.5px; line-height:1.5;">
+            Hardware-accelerated canvas renders compiling activity grid maps, progress indicators, radar strengths, and focus density logs without external libraries.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ADAPTIVE CURRICULUM SYLLABUS SECTION -->
+    <section id="syllabus" class="landing-syllabus-section" style="width:100%; max-width:1300px; margin: 80px auto; padding: 0 24px;">
+      <h2 style="font-family:var(--font-display); font-size:32px; font-weight:700; margin-bottom:40px; text-align:center;">
+        Curriculum <span style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Pathways</span>
+      </h2>
+      
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+        
+        <!-- Card 1 -->
+        <div class="glass-panel" style="padding:24px; display:flex; flex-direction:column; justify-content:space-between; border-left:4px solid var(--accent-cyan);">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="font-family:var(--font-mono); font-size:11px; color:var(--accent-cyan);">MODULE 01 // CRITICAL PATH</span>
+              <span style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">Mastery: 68%</span>
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:20px; font-weight:600; margin-bottom:10px;">Quantum Computing & Algorithms</h3>
+            <p style="color:var(--text-secondary); font-size:13px; line-height:1.5; margin-bottom:16px;">
+              Covers superposition, entanglement states, Hadamard transforms, Shor's factoring protocols, and custom QASM execution assemblies.
+            </p>
+          </div>
+          <div style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">SYLLABUS SECTIONS: 14 CLASSES // 3 LABS</div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-panel" style="padding:24px; display:flex; flex-direction:column; justify-content:space-between; border-left:4px solid var(--accent-purple);">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="font-family:var(--font-mono); font-size:11px; color:var(--accent-purple);">MODULE 02 // AI SYNAPSE</span>
+              <span style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">Mastery: 45%</span>
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:20px; font-weight:600; margin-bottom:10px;">Neuro-Symbolic AI Architectures</h3>
+            <p style="color:var(--text-secondary); font-size:13px; line-height:1.5; margin-bottom:16px;">
+              Unifies neural networks with logical constraints, cognitive compiler systems, vector database retrievals, and neural grounding.
+            </p>
+          </div>
+          <div style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">SYLLABUS SECTIONS: 18 CLASSES // 5 LABS</div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-panel" style="padding:24px; display:flex; flex-direction:column; justify-content:space-between; border-left:4px solid var(--accent-blue);">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="font-family:var(--font-mono); font-size:11px; color:var(--accent-blue);">MODULE 03 // LIFE SYSTEMS</span>
+              <span style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">Mastery: 82%</span>
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:20px; font-weight:600; margin-bottom:10px;">Bio-Synthetic Engineering</h3>
+            <p style="color:var(--text-secondary); font-size:13px; line-height:1.5; margin-bottom:16px;">
+              Examines bio-sensor links, molecular networks, neural interface hardware codes, and DNA digital memory allocations.
+            </p>
+          </div>
+          <div style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">SYLLABUS SECTIONS: 12 CLASSES // 2 LABS</div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="glass-panel" style="padding:24px; display:flex; flex-direction:column; justify-content:space-between; border-left:4px solid #ef4444;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="font-family:var(--font-mono); font-size:11px; color:#ef4444;">MODULE 04 // AGENT SWARMS</span>
+              <span style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">Mastery: 20%</span>
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:20px; font-weight:600; margin-bottom:10px;">Autonomous Agent Networks</h3>
+            <p style="color:var(--text-secondary); font-size:13px; line-height:1.5; margin-bottom:16px;">
+              Focuses on multi-agent game theory, task decomposition loops, recursive feedback networks, and dynamic workspace actions.
+            </p>
+          </div>
+          <div style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">SYLLABUS SECTIONS: 20 CLASSES // 6 LABS</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PRICING BENTO GRID -->
+    <section id="pricing" class="landing-pricing-section" style="width:100%; max-width:1300px; margin: 80px auto; padding: 0 24px 100px 24px;">
+      <h2 style="font-family:var(--font-display); font-size:32px; font-weight:700; margin-bottom:40px; text-align:center;">
+        Compute <span style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Slices</span>
+      </h2>
+      
+      <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:20px;">
+        
+        <!-- Tier 1 -->
+        <div class="glass-panel" style="padding:32px; display:flex; flex-direction:column; justify-content:space-between; min-height:360px;">
+          <div>
+            <div style="font-family:var(--font-mono); font-size:11px; color:var(--text-secondary); margin-bottom:8px;">LOCAL CORE</div>
+            <h3 style="font-family:var(--font-display); font-size:24px; font-weight:700; margin-bottom:12px;">Base Node</h3>
+            <div style="font-family:var(--font-display); font-size:36px; font-weight:700; color:#fff; margin-bottom:20px;">
+              $0 <span style="font-size:13px; font-family:var(--font-mono); color:var(--text-muted); font-weight:400;">/ LIFETIME</span>
+            </div>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; color:var(--text-secondary); font-size:13px;">
+              <li>- Standard adaptive dashboard</li>
+              <li>- Access to 4 foundational courses</li>
+              <li>- Local focus timer (No Web Audio)</li>
+              <li>- Standard AI assistant interface</li>
+            </ul>
+          </div>
+          <button class="btn-futuristic" style="width:100%; justify-content:center; margin-top:24px;">SELECT NODE</button>
+        </div>
+
+        <!-- Tier 2 -->
+        <div class="glass-panel glow-border-card" style="padding:32px; display:flex; flex-direction:column; justify-content:space-between; min-height:360px; border-color: rgba(0, 245, 255, 0.25);">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span style="font-family:var(--font-mono); font-size:11px; color:var(--accent-cyan);">ACTIVE SYNC</span>
+              <span style="font-family:var(--font-mono); font-size:9px; background:rgba(0,245,255,0.1); color:var(--accent-cyan); padding:2px 6px; border-radius:4px;">POPULAR</span>
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:24px; font-weight:700; margin-bottom:12px;">Advanced Agent</h3>
+            <div style="font-family:var(--font-display); font-size:36px; font-weight:700; color:#fff; margin-bottom:20px;">
+              $29 <span style="font-size:13px; font-family:var(--font-mono); color:var(--text-muted); font-weight:400;">/ CYCLE</span>
+            </div>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; color:var(--text-secondary); font-size:13px;">
+              <li>- Expanded Bento telemetry tracking</li>
+              <li>- Procedural focus synthesizer audio</li>
+              <li>- Live QASM quantum sandbox output</li>
+              <li>- Advanced AI Core command routing</li>
+            </ul>
+          </div>
+          <button class="btn-futuristic" style="width:100%; justify-content:center; margin-top:24px; border-color:var(--accent-cyan); color:var(--accent-cyan);">LINK NODE</button>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="glass-panel" style="padding:32px; display:flex; flex-direction:column; justify-content:space-between; min-height:360px;">
+          <div>
+            <div style="font-family:var(--font-mono); font-size:11px; color:var(--accent-purple); margin-bottom:8px;">GRID NETWORK</div>
+            <h3 style="font-family:var(--font-display); font-size:24px; font-weight:700; margin-bottom:12px;">Synapse Grid</h3>
+            <div style="font-family:var(--font-display); font-size:79px; font-weight:700; color:#fff; margin-bottom:20px; font-size:36px;">
+              $99 <span style="font-size:13px; font-family:var(--font-mono); color:var(--text-muted); font-weight:400;">/ CYCLE</span>
+            </div>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; color:var(--text-secondary); font-size:13px;">
+              <li>- Complete biometrics dashboard graphs</li>
+              <li>- Dedicated LFO ocean audio modules</li>
+              <li>- Unlimited multi-agent diagnostics</li>
+              <li>- Priority compute compiler routes</li>
+            </ul>
+          </div>
+          <button class="btn-futuristic" style="width:100%; justify-content:center; margin-top:24px;">LINK NETWORK</button>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- DIAGNOSTIC BOOT LOADER WRAPPER -->
+  <div id="boot-container" class="boot-container">
+    <div class="boot-box glass-panel">
+      <div class="boot-header">
+        <div class="boot-title">SYNAPSE CONNECTION ENGINE</div>
+        <div class="boot-dots">
+          <div class="boot-dot cyan"></div>
+          <div class="boot-dot purple"></div>
+          <div class="boot-dot"></div>
+        </div>
+      </div>
+      <div id="boot-logs" class="boot-logs">
+        <!-- Logs added in JS -->
+      </div>
+      <div class="boot-progress-container">
+        <div class="boot-progress-label">
+          <span>CONNECTING INTEGRATED TELEMETRY</span>
+          <span style="font-family: var(--font-mono);">ONLINE</span>
+        </div>
+        <div class="boot-progress-bar">
+          <div id="boot-progress-fill" class="boot-progress-fill"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Javascript Modules -->
+  <script src="js/particles.js"></script>
+  <script>
+    // Local Landing page logic
+    document.addEventListener('DOMContentLoaded', () => {
+      // Background particles
+      new window.NexoraParticles('bg-canvas');
+      
+      const initBtn = document.getElementById('init-console-btn');
+      const bootContainer = document.getElementById('boot-container');
+      const bootProgressFill = document.getElementById('boot-progress-fill');
+      const bootLogs = document.getElementById('boot-logs');
+      const landingWrapper = document.getElementById('landing-wrapper');
+      
+      if (initBtn) {
+        initBtn.addEventListener('click', () => {
+          bootContainer.classList.add('active');
+          
+          const logs = [
+            { text: "NEXORA CORE VERIFICATION v1.0.8", type: "success" },
+            { text: "SECURE CHANNEL SYNCING...", type: "info" },
+            { text: "BIOSYNC DECODER: ONLINE [PORT 492]", type: "success" },
+            { text: "PARSING COGNITIVE METRIC GRID...", type: "info" },
+            { text: "LINKING SYNAPSE GRID CLOCK...", type: "info" },
+            { text: "LOADER RESPONSE: REDIRECT TO DASHBOARD", type: "success" }
+          ];
+          
+          let logIndex = 0;
+          let progress = 0;
+          
+          const logInterval = setInterval(() => {
+            if (logIndex < logs.length) {
+              const item = logs[logIndex];
+              const line = document.createElement('div');
+              line.className = 'boot-log-line';
+              
+              const time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+              
+              line.innerHTML = `
+                <span class="boot-log-timestamp">${time}</span>
+                <span class="boot-log-status ${item.type}">[${item.type.toUpperCase()}]</span>
+                <span class="boot-log-text">${item.text}</span>
+              `;
+              bootLogs.appendChild(line);
+              bootLogs.scrollTop = bootLogs.scrollHeight;
+              logIndex++;
+            }
+          }, 180);
+          
+          const progressInterval = setInterval(() => {
+            progress += 2;
+            if (progress > 100) progress = 100;
+            bootProgressFill.style.width = `${progress}%`;
+            
+            if (progress >= 100) {
+              clearInterval(progressInterval);
+              clearInterval(logInterval);
+              
+              setTimeout(() => {
+                bootContainer.style.opacity = '0';
+                landingWrapper.classList.add('deactivate');
+                
+                setTimeout(() => {
+                  // MULTIPAGE ROUTING: Direct transition redirect
+                  window.location.href = 'dashboard.html';
+                }, 500);
+              }, 800);
+            }
+          }, 40);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

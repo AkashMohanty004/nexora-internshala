@@ -1,0 +1,146 @@
+/* ==========================================================================
+   NEXORA TELEMETRY PAGE SPECIFIC CSS
+   ========================================================================== */
+
+/* Bento grid layouts for Telemetry */
+.telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.card-big-chart {
+  grid-column: span 3;
+  min-height: 300px;
+}
+
+.card-radar-chart {
+  grid-column: span 1;
+  min-height: 300px;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-logs-table {
+  grid-column: span 4;
+  min-height: 320px;
+}
+
+/* Radar SVG styles */
+.radar-svg {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+}
+
+.radar-grid-polygon {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.04);
+  stroke-width: 1;
+}
+
+.radar-axis-line {
+  stroke: rgba(255, 255, 255, 0.06);
+  stroke-width: 1;
+  stroke-dasharray: 2 2;
+}
+
+.radar-axis-label {
+  fill: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 1px;
+  text-anchor: middle;
+}
+
+.radar-data-polygon {
+  fill: rgba(0, 245, 255, 0.1);
+  stroke: var(--accent-cyan);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 6px var(--accent-cyan));
+  animation: radarPulse 4s infinite alternate ease-in-out;
+}
+
+@keyframes radarPulse {
+  0% { fill: rgba(0, 245, 255, 0.08); }
+  100% { fill: rgba(189, 92, 255, 0.12); stroke: var(--accent-purple); filter: drop-shadow(0 0 8px var(--accent-purple)); }
+}
+
+/* Database Table Styles */
+.telemetry-table-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.telemetry-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 12.5px;
+}
+
+.telemetry-table th {
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.015);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.telemetry-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+}
+
+.telemetry-table tr:last-child td {
+  border-bottom: none;
+}
+
+.telemetry-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-primary);
+}
+
+.cell-mono {
+  font-family: var(--font-mono) !important;
+  font-size: 11px;
+  color: var(--text-primary);
+}
+
+.cell-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 99px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 1px;
+}
+
+.badge-cyan-light {
+  background: rgba(0, 245, 255, 0.06);
+  border: 1px solid rgba(0, 245, 255, 0.15);
+  color: var(--accent-cyan);
+}
+
+.badge-purple-light {
+  background: rgba(189, 92, 255, 0.06);
+  border: 1px solid rgba(189, 92, 255, 0.15);
+  color: var(--accent-purple);
+}
+
+.badge-blue-light {
+  background: rgba(59, 130, 246, 0.06);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  color: var(--accent-blue);
+}

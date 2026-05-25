@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora Core // Telemetry Cockpit</title>
+  
+  <!-- CSS Linkages -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/telemetry.css">
+</head>
+<body>
+
+  <!-- Background Particles Canvas -->
+  <canvas id="bg-canvas" style="position: fixed; top:0; left:0; width:100vw; height:100vh; z-index:1; pointer-events:none;"></canvas>
+  
+  <!-- CRT Digital Grain Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Ambient Blurred Backdrop Gradients -->
+  <div class="ambient-glow-container">
+    <div class="ambient-orb orb-cyan"></div>
+    <div class="ambient-orb orb-purple"></div>
+    <div class="ambient-orb orb-blue"></div>
+  </div>
+
+  <!-- APP WRAPPER -->
+  <div id="app-wrapper" class="app-wrapper active">
+    
+    <!-- LEFT SIDEBAR NAVIGATION -->
+    <nav class="sidebar glass-panel">
+      <div class="sidebar-toggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:40px;">
+        <div class="sidebar-header">
+          <div class="sidebar-logo"></div>
+          <div class="sidebar-logo-text">NEXORA</div>
+        </div>
+
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a href="dashboard.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+              <span>Overview</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="modules.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+              <span>Modules</span>
+            </a>
+          </li>
+          <li class="sidebar-item active">
+            <a href="telemetry.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path></svg>
+              <span>Telemetry</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="ai-synapse.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>AI Synapse</span>
+            </a>
+          </li>
+        </ul>
+
+        <div>
+          <div class="sidebar-label">WORKSPACE SPECS</div>
+          <ul class="sidebar-menu" style="margin-top:0;">
+            <li class="sidebar-item">
+              <a href="index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                <span>Console Term</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- USER INFO -->
+      <div class="sidebar-footer">
+        <div class="user-avatar">A</div>
+        <div class="user-meta">
+          <span class="user-name">Akash Kumar</span>
+          <span class="user-role">SYSTEM AGENT #089</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MAIN VIEW AREA -->
+    <main class="main-content">
+      
+      <!-- HEADER -->
+      <header class="dashboard-header">
+        <div class="header-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" placeholder="Search cognitive base...">
+        </div>
+
+        <div class="header-actions">
+          <div class="action-badge">
+            <span class="pulse-indicator"></span>
+            SYNAPSE SECURE
+          </div>
+        </div>
+      </header>
+
+      <!-- TELEMETRY BENTO GRID -->
+      <div class="dashboard-scroll-area">
+        <div class="telemetry-grid">
+          
+          <!-- Big line graph -->
+          <div class="bento-card glass-panel card-big-chart">
+            <div style="font-family:var(--font-display); font-size:15px; font-weight:600; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+              <span>Focus Sync Index (30-Day Timeline)</span>
+              <span style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">Avg. 84.6%</span>
+            </div>
+            <div class="heatmap-canvas-container" style="flex:1;">
+              <canvas id="big-focus-chart" style="width:100%; height:100%;"></canvas>
+            </div>
+          </div>
+
+          <!-- Radar graph card -->
+          <div class="bento-card glass-panel card-radar-chart">
+            <div style="font-family:var(--font-display); font-size:13px; font-weight:600; margin-bottom:14px; text-transform:uppercase; letter-spacing:1px;">Cognitive Radar</div>
+            
+            <svg id="radar-svg" class="radar-svg" viewBox="0 0 220 220">
+              <!-- Radar outer rings -->
+              <polygon class="radar-grid-polygon" points="110,30 190,90 160,170 60,170 30,90" />
+              <polygon class="radar-grid-polygon" points="110,50 170,95 147,150 73,150 50,95" />
+              <polygon class="radar-grid-polygon" points="110,70 150,100 135,130 85,130 70,100" />
+              <polygon class="radar-grid-polygon" points="110,90 130,105 122,118 98,118 90,105" />
+              
+              <!-- Axes -->
+              <line class="radar-axis-line" x1="110" y1="110" x2="110" y2="30" />
+              <line class="radar-axis-line" x1="110" y1="110" x2="190" y2="90" />
+              <line class="radar-axis-line" x1="110" y1="110" x2="160" y2="170" />
+              <line class="radar-axis-line" x1="110" y1="110" x2="60" y2="170" />
+              <line class="radar-axis-line" x1="110" y1="110" x2="30" y2="90" />
+              
+              <!-- Labels -->
+              <text class="radar-axis-label" x="110" y="24">QUANTUM</text>
+              <text class="radar-axis-label" x="205" y="93" style="text-anchor:start;">NEURO-AI</text>
+              <text class="radar-axis-label" x="175" y="182" style="text-anchor:start;">BIOSYNTH</text>
+              <text class="radar-axis-label" x="45" y="182" style="text-anchor:end;">FOCUS</text>
+              <text class="radar-axis-label" x="15" y="93" style="text-anchor:end;">AGENTS</text>
+              
+              <!-- Pulsing strengths polygon -->
+              <polygon id="radar-poly" class="radar-data-polygon" points="" />
+            </svg>
+          </div>
+
+          <!-- Logs Database Table -->
+          <div class="bento-card glass-panel card-logs-table">
+            <div style="font-family:var(--font-display); font-size:15px; font-weight:600;">Focus Session Telemetry Log</div>
+            
+            <div class="telemetry-table-wrapper">
+              <table class="telemetry-table">
+                <thead>
+                  <tr>
+                    <th>Sync Date</th>
+                    <th>Module Reference</th>
+                    <th>Presynth sound</th>
+                    <th>Sync Duration</th>
+                    <th>XP Generated</th>
+                    <th>Efficiency Index</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="cell-mono">May 25, 2026</td>
+                    <td>Quantum Superposition & Qubits</td>
+                    <td><span class="cell-badge badge-cyan-light">ALPHA 10HZ</span></td>
+                    <td>25:00 min</td>
+                    <td style="color:#fff; font-weight:600;">+500 XP</td>
+                    <td style="color:#10b981;">98.2%</td>
+                  </tr>
+                  <tr>
+                    <td class="cell-mono">May 24, 2026</td>
+                    <td>Phase Gates & Bloch Sphere</td>
+                    <td><span class="cell-badge badge-purple-light">COSMIC RAIN</span></td>
+                    <td>25:00 min</td>
+                    <td style="color:#fff; font-weight:600;">+500 XP</td>
+                    <td style="color:#10b981;">94.5%</td>
+                  </tr>
+                  <tr>
+                    <td class="cell-mono">May 22, 2026</td>
+                    <td>Logic Constraint Embeddings</td>
+                    <td><span class="cell-badge badge-blue-light">NONE</span></td>
+                    <td>12:40 min</td>
+                    <td style="color:#fff; font-weight:600;">+150 XP</td>
+                    <td style="color:#f59e0b;">72.0% (Terminated)</td>
+                  </tr>
+                  <tr>
+                    <td class="cell-mono">May 21, 2026</td>
+                    <td>Quantum Superposition & Qubits</td>
+                    <td><span class="cell-badge badge-cyan-light">ALPHA 10HZ</span></td>
+                    <td>25:00 min</td>
+                    <td style="color:#fff; font-weight:600;">+500 XP</td>
+                    <td style="color:#10b981;">96.8%</td>
+                  </tr>
+                  <tr>
+                    <td class="cell-mono">May 20, 2026</td>
+                    <td>Bio-Synthetic Engineering Intro</td>
+                    <td><span class="cell-badge badge-purple-light">COSMIC RAIN</span></td>
+                    <td>25:00 min</td>
+                    <td style="color:#fff; font-weight:600;">+500 XP</td>
+                    <td style="color:#10b981;">91.4%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Javascript Modules -->
+  <script src="js/particles.js"></script>
+  <script src="js/telemetry.js"></script>
+  <script>
+    // Collapsible sidebar link
+    const sidebar = document.querySelector('.sidebar');
+    const sidebarToggle = document.querySelector('.sidebar-toggle');
+    if (sidebarToggle && sidebar) {
+      sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('collapsed');
+        setTimeout(() => {
+          window.dispatchEvent(new Event('resize'));
+        }, 360);
+      });
+    }
+  </script>
+</body>
+</html>

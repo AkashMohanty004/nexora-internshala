@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora Core // Dashboard Workspace</title>
+  
+  <!-- CSS Linkages -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <!-- Background Particles Canvas -->
+  <canvas id="bg-canvas" style="position: fixed; top:0; left:0; width:100vw; height:100vh; z-index:1; pointer-events:none;"></canvas>
+  
+  <!-- CRT Digital Grain Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Ambient Blurred Backdrop Gradients -->
+  <div class="ambient-glow-container">
+    <div class="ambient-orb orb-cyan"></div>
+    <div class="ambient-orb orb-purple"></div>
+    <div class="ambient-orb orb-blue"></div>
+  </div>
+
+  <!-- APP WRAPPER -->
+  <div id="app-wrapper" class="app-wrapper active">
+    
+    <!-- LEFT SIDEBAR NAVIGATION -->
+    <nav class="sidebar glass-panel">
+      <div class="sidebar-toggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:40px;">
+        <div class="sidebar-header">
+          <div class="sidebar-logo"></div>
+          <div class="sidebar-logo-text">NEXORA</div>
+        </div>
+
+        <ul class="sidebar-menu">
+          <li class="sidebar-item active">
+            <a href="dashboard.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+              <span>Overview</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="modules.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+              <span>Modules</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="telemetry.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path></svg>
+              <span>Telemetry</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="ai-synapse.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>AI Synapse</span>
+            </a>
+          </li>
+        </ul>
+
+        <div>
+          <div class="sidebar-label">WORKSPACE SPECS</div>
+          <ul class="sidebar-menu" style="margin-top:0;">
+            <li class="sidebar-item">
+              <a href="index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                <span>Console Term</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- USER INFO -->
+      <div class="sidebar-footer">
+        <div class="user-avatar">A</div>
+        <div class="user-meta">
+          <span class="user-name">Akash Kumar</span>
+          <span class="user-role">SYSTEM AGENT #089</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MAIN VIEW AREA -->
+    <main class="main-content">
+      
+      <!-- HEADER -->
+      <header class="dashboard-header">
+        <div class="header-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" placeholder="Search cognitive base...">
+        </div>
+
+        <div class="header-actions">
+          <div class="action-badge">
+            <span class="pulse-indicator"></span>
+            SYNAPSE SECURE
+          </div>
+        </div>
+      </header>
+
+      <!-- SCROLL AREA -->
+      <div class="dashboard-scroll-area">
+        <div class="bento-grid">
+          
+          <!-- Hero Widget -->
+          <div class="bento-card glass-panel card-hero glow-border-card">
+            <div class="hero-mesh-overlay"></div>
+            <div class="hero-profile-info">
+              <div class="hero-tag">TELEMETRY ACTIVE // COGNITIVE ALIGNMENT ONLINE</div>
+              <h2 class="hero-title-text">Welcome back, Akash</h2>
+              <p style="color:var(--text-secondary); font-size:13.5px; max-width:550px; line-height:1.5;">
+                Your neural sync index is operating at 94% capacity. Today's focus peak is predicted for the next 2 hours. Start your focus cycles below.
+              </p>
+              
+              <div class="hero-streak-container">
+                <div class="streak-indicator">
+                  <svg viewBox="0 0 24 24"><path d="M17.66 11.57C17.43 8.35 15.22 6.08 12.33 3.86a.5.5 0 0 0-.77.56c.71 2.37.16 4.96-1.5 6.63-1.66 1.67-4.24 2.22-6.61 1.5a.5.5 0 0 0-.57.77c2.22 2.89 4.49 5.1 7.71 5.33 3.5.25 6.72-2.31 7.07-5.83.05-.26.03-.51-.01-.77Z"/></svg>
+                  <span>18 DAY STREAK</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- XP Gauge -->
+          <div class="bento-card glass-panel card-xp-meter">
+            <div class="xp-circle-wrapper">
+              <svg width="110" height="110">
+                <defs>
+                  <linearGradient id="xpGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="var(--accent-purple)" />
+                    <stop offset="100%" stop-color="var(--accent-cyan)" />
+                  </linearGradient>
+                </defs>
+                <circle class="xp-ring-back" cx="55" cy="55" r="45" />
+                <circle class="xp-ring-fill" cx="55" cy="55" r="45" />
+              </svg>
+              <div class="xp-number">8,450</div>
+            </div>
+            <div class="xp-label">COGNITIVE XP</div>
+          </div>
+
+          <!-- Courses Grid -->
+          <div class="bento-card glass-panel card-courses-grid">
+            <div class="course-grid-title">
+              <span>Adaptive Curriculum</span>
+              <span style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">4 Active Modules</span>
+            </div>
+            
+            <div class="courses-container">
+              <!-- Course 1 -->
+              <div class="course-item" style="--accent:var(--accent-cyan); --glow:rgba(0,245,255,0.15); --progress:68%;">
+                <div class="course-icon-row">
+                  <div class="course-icon-bg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                  </div>
+                  <span class="course-level">LEVEL III</span>
+                </div>
+                <div class="course-name">Quantum Computing & Algorithms</div>
+                <div>
+                  <div class="course-progress-meta">
+                    <span>Sync Index</span>
+                    <span>68%</span>
+                  </div>
+                  <div class="course-progress-bar">
+                    <div class="course-progress-fill"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Course 2 -->
+              <div class="course-item" style="--accent:var(--accent-purple); --glow:rgba(189,92,255,0.15); --progress:45%;">
+                <div class="course-icon-row">
+                  <div class="course-icon-bg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 6v6l4 2"></path></svg>
+                  </div>
+                  <span class="course-level">LEVEL V</span>
+                </div>
+                <div class="course-name">Neuro-Symbolic AI Architectures</div>
+                <div>
+                  <div class="course-progress-meta">
+                    <span>Sync Index</span>
+                    <span>45%</span>
+                  </div>
+                  <div class="course-progress-bar">
+                    <div class="course-progress-fill"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Course 3 -->
+              <div class="course-item" style="--accent:var(--accent-blue); --glow:rgba(59,130,246,0.15); --progress:82%;">
+                <div class="course-icon-row">
+                  <div class="course-icon-bg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                  </div>
+                  <span class="course-level">LEVEL IV</span>
+                </div>
+                <div class="course-name">Bio-Synthetic Engineering</div>
+                <div>
+                  <div class="course-progress-meta">
+                    <span>Sync Index</span>
+                    <span>82%</span>
+                  </div>
+                  <div class="course-progress-bar">
+                    <div class="course-progress-fill"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Course 4 -->
+              <div class="course-item" style="--accent:#ef4444; --glow:rgba(239,68,68,0.15); --progress:20%;">
+                <div class="course-icon-row">
+                  <div class="course-icon-bg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3zM6 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3z"></path></svg>
+                  </div>
+                  <span class="course-level">LEVEL II</span>
+                </div>
+                <div class="course-name">Autonomous Agent Networks</div>
+                <div>
+                  <div class="course-progress-meta">
+                    <span>Sync Index</span>
+                    <span>20%</span>
+                  </div>
+                  <div class="course-progress-bar">
+                    <div class="course-progress-fill"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Focus Synth Timer -->
+          <div class="bento-card glass-panel card-focus-session">
+            <div class="focus-header">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>Neural Focus</span>
+            </div>
+            
+            <div class="focus-visualizer">
+              <div class="focus-wave"></div>
+              <div class="focus-wave"></div>
+              <div class="focus-wave"></div>
+              <div class="focus-wave"></div>
+              <div class="focus-wave"></div>
+              <div class="focus-wave"></div>
+            </div>
+            
+            <div class="focus-timer">25:00</div>
+            
+            <div class="focus-audio-selector">
+              <button class="focus-sound-btn" data-sound="alpha">ALPHA 10HZ</button>
+              <button class="focus-sound-btn" data-sound="cosmic">COSMIC RAIN</button>
+            </div>
+            
+            <button class="focus-btn">Start Session</button>
+          </div>
+
+          <!-- AI Console Core -->
+          <div class="bento-card glass-panel card-ai-insights">
+            <div class="ai-header">
+              <div class="ai-header-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                <span>Nexora Core</span>
+              </div>
+              <span class="ai-header-badge">AI ACTIVE</span>
+            </div>
+            
+            <div id="ai-chat-body" class="ai-chat-body">
+              <!-- Text logs populated via JS -->
+            </div>
+            
+            <div class="ai-chat-input-row">
+              <input id="ai-chat-input" type="text" placeholder="Type prompt or command...">
+              <button id="ai-chat-submit">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Activity Heatmap -->
+          <div class="bento-card glass-panel card-activity-heatmap">
+            <div style="font-family:var(--font-display); font-size:15px; font-weight:600; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+              <span>Synapse Activity Density Grid</span>
+              <span style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">28 Week Timeline</span>
+            </div>
+            <div class="heatmap-canvas-container">
+              <canvas id="activity-canvas" class="heatmap-canvas"></canvas>
+            </div>
+          </div>
+
+          <!-- Mini Stat 1 -->
+          <div class="bento-card glass-panel card-mini-stat">
+            <div class="mini-stat-header">
+              <span class="mini-stat-title">Focus Hours</span>
+              <div class="mini-stat-icon" style="border-color: rgba(0, 245, 255, 0.2);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              </div>
+            </div>
+            <div>
+              <div class="mini-stat-value">142.8</div>
+              <div class="mini-stat-sparkline">
+                <canvas id="hours-sparkline"></canvas>
+              </div>
+            </div>
+            <div class="mini-stat-trend trend-up">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+              <span>+14.2% this week</span>
+            </div>
+          </div>
+
+          <!-- Mini Stat 2 -->
+          <div class="bento-card glass-panel card-mini-stat">
+            <div class="mini-stat-header">
+              <span class="mini-stat-title">Completion Velocity</span>
+              <div class="mini-stat-icon" style="border-color: rgba(189, 92, 255, 0.2);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-purple)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+              </div>
+            </div>
+            <div>
+              <div class="mini-stat-value">87.5%</div>
+              <div class="mini-stat-sparkline">
+                <canvas id="completion-sparkline"></canvas>
+              </div>
+            </div>
+            <div class="mini-stat-trend trend-up">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+              <span>+5.8% velocity index</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Javascript Modules -->
+  <script src="js/particles.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/ai-core.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
